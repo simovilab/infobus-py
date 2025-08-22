@@ -1,4 +1,6 @@
-# Infobús Python Client
+<img width="250" alt="infobus" src="https://github.com/user-attachments/assets/3202e078-509d-4062-b454-351677d327ed" />
+
+# Python SDK
 
 [![PyPI version](https://badge.fury.io/py/infobus.svg)](https://badge.fury.io/py/infobus)
 [![Python Support](https://img.shields.io/pypi/pyversions/infobus.svg)](https://pypi.org/project/infobus/)
@@ -70,23 +72,27 @@ infobus export --format csv --output data.csv
 ## Features
 
 ### Core API Client
+
 - **RESTful API Integration**: Clean interface to Infobús REST endpoints
 - **Authentication Support**: Token-based authentication handling
 - **Error Handling**: Comprehensive error handling with meaningful messages
 - **Rate Limiting**: Built-in rate limiting and retry logic
 
 ### Data Models
+
 - **Pydantic Models**: Type-safe data models for all API responses
 - **GTFS Compatibility**: Models aligned with GTFS and GTFS Realtime specifications
 - **Validation**: Automatic data validation and serialization
 
 ### CLI Tools
+
 - **Interactive Commands**: Easy-to-use command-line interface
 - **Data Export**: Export data in multiple formats (JSON, CSV, XML)
 - **Batch Operations**: Process multiple requests efficiently
 - **Configuration Management**: Store and manage API credentials
 
 ### Research Integration
+
 - **Pandas Integration**: Easy conversion to pandas DataFrames
 - **Time Series Support**: Built-in support for time-based analysis
 - **Geospatial Data**: Integration with geospatial libraries
