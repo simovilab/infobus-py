@@ -1,0 +1,58 @@
+[project]
+name = "infobus"
+version = "0.1.0"
+description = "A Python client library and CLI tools for accessing Infobús external APIs and integrating transit data into research workflows"
+readme = "README.md"
+authors = [
+    { name = "Fabián Abarca", email = "ensinergia@gmail.com" }
+]
+requires-python = ">=3.9"
+dependencies = [
+    "requests>=2.31.0",
+    "click>=8.0.0",
+    "pydantic>=2.0.0",
+    "python-dateutil>=2.8.0",
+]
+keywords = ["transit", "gtfs", "public-transportation", "api-client", "research"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+license = {text = "Apache-2.0"}
+
+[project.urls]
+Homepage = "https://github.com/simovilab/infobus-py"
+Repository = "https://github.com/simovilab/infobus-py"
+Documentation = "https://github.com/simovilab/infobus-py#readme"
+"Bug Tracker" = "https://github.com/simovilab/infobus-py/issues"
+
+[project.scripts]
+infobus = "infobus.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+docs = [
+    "mkdocs-material>=9.0.0",
+    "mkdocs-click>=0.8.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
