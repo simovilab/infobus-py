@@ -1,0 +1,43 @@
+name: "stop_vertical"
+description: "Señal vertical para paradas de autobús"
+
+dimensions:
+  width: 300
+  height: 450
+  unit: "mm"
+
+grid:
+  rows: 8
+  cols: 4
+  margin: 10
+
+fonts:
+  primary:
+    family: "Inter"
+    size: 48
+    weight: "700"
+  secondary:
+    family: "Inter"
+    size: 32
+    weight: "400"
+
+palette:
+  background: "#0055A4"
+  text: "#FFFFFF"
+  secondary: "#FFD700"
+  icon_color: "#FFFFFF"
+
+icons:
+  bus: 
+    "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+
+fields:
+  - name: "stop_name"
+    type: "text"
+    required: true
+  - name: "stop_code"
+    type: "code"
+    required: true
+  - name: "qr_code"
+    type: "qr"
+    required: false

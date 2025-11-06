@@ -1,0 +1,79 @@
+<svg width="300mm" height="450mm" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="#0055A4"/>
+    
+    <!-- SISTEMA SIMPLE GRID  -->
+    
+    
+    
+    
+    <text x="225" y="300" fill="#FFFFFF" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="48pt"
+          font-weight="700">
+        Parada Central
+    </text>
+    
+    
+    
+    
+    <text x="225" y="400" fill="#FFFFFF" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="32pt"
+          font-weight="400">
+        PC-001
+    </text>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- SISTEMA DE ICONOS -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        
+        
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#FFFFFF" 
+              transform="translate(225, 520) scale(5)"/>
+        
+    
+
+    <!-- CÓDIGO QR - POSICIÓN FIJA PARA PDF -->
+    
+    <image href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeAQAAAAB6HIMaAAAAAnRSTlMAAQGU/a4AAAFJSURBVHja7VjBDQMxCEPNABkpqzNSBohEDU7ya791pYtOJ3J8LGSMOYvPZ9mTfJK6ScszrEfMgajNvDckX/bl/CKZaAEscXZPhDYQ86Mo2ol6AqQBMKC2rPAQR9vCUdiFL/+ANsLxALM62uLtaTsi1+UtNaHN+0hrAg8UrFHBrryp8pbNRR3De1HNJNEmV6u5qsLOFhPWhMG4XbGdJsuEnLkQ2x4bcJFWuMucOEEJMDZqTCjXliDT29iewsJ6u51MldTrasKaAMmKdsYZPYMyEzjCKAW4puoK15aqe8TWl+kqWLmaGhDpwSqeupqwp1gN32txdZkAVwCrkDp255pwbenBkrdBh6DsGLe/zSKzzkNZE87Oi8B3bbv6zrv6xsxfCvo7b9EVZsz1a0veBpffKb/zcvJyixTusqMJTsw71tbb57/mk/yf5BsvGRxkoGB7EAAAAABJRU5ErkJggg==" 
+           x="225" y="950" 
+           width="300" height="300"
+           title="Código QR: https://maps.google.com/?q=Plaza+Central"/>
+    
+    <!-- Texto debajo del QR -->
+    <text x="375.0" y="1270" 
+          fill="#FFFFFF" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="50.0"
+          font-weight="400"
+          text-anchor="middle">
+        Escanear QR
+    </text>
+    
+
+</svg>
