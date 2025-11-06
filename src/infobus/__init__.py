@@ -16,6 +16,6 @@ from .exceptions import InfobusError, InfobusAPIError, InfobusConnectionError
 __all__ = [
     "InfobusClient",
     "InfobusError",
-    "InfobusAPIError", 
+    "InfobusAPIError",
     "InfobusConnectionError",
 ]

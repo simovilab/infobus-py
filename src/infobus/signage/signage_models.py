@@ -38,6 +38,7 @@ class Palette(BaseModel):
     text: Optional[str] = Field(None, description="Color del texto")
     icon_color: Optional[str] = Field(None, description="Color de íconos")
 
+
 class FieldDef(BaseModel):
     name: str = Field(
         ..., description="Nombre identificador del campo"

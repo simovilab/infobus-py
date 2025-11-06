@@ -58,12 +58,10 @@ class SignageRenderer:
             qr_y = -150
 
         elif "station" in template_name and "modular" in template_name:
-            
             qr_x = 1000
             qr_y = 600
 
         elif "route" in template_name:
-            
             qr_x = qr_margin
             qr_y = template.dimensions.height - qr_size - qr_margin
 
@@ -156,12 +154,11 @@ class SignageRenderer:
         #  VEHICLE - PDF
         if "vehicle" in template_name:
             try:
-                
                 print("   🔄 Usando conversión directa para PDF vehicle...")
                 return cairosvg.svg2pdf(bytestring=svg_content.encode("utf-8"))
             except Exception as e:
                 print(f"   ⚠️  Error en conversión vehicle PDF: {e}")
-               
+
                 pass
 
         # Guardar temporalmente y convertir

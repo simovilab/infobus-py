@@ -5,10 +5,10 @@ from typing import Optional
 
 class InfobusError(Exception):
     """Base exception for all Infobús client errors."""
-    
+
     def __init__(self, message: str) -> None:
         """Initialize the exception with a message.
-        
+
         Args:
             message: Error message
         """
@@ -18,10 +18,10 @@ class InfobusError(Exception):
 
 class InfobusConnectionError(InfobusError):
     """Exception raised for connection-related errors."""
-    
+
     def __init__(self, message: str) -> None:
         """Initialize the connection error.
-        
+
         Args:
             message: Error message describing the connection issue
         """
@@ -30,10 +30,10 @@ class InfobusConnectionError(InfobusError):
 
 class InfobusAPIError(InfobusError):
     """Exception raised for API-related errors."""
-    
+
     def __init__(self, message: str, status_code: Optional[int] = None) -> None:
         """Initialize the API error.
-        
+
         Args:
             message: Error message from the API
             status_code: HTTP status code if available
@@ -47,10 +47,10 @@ class InfobusAPIError(InfobusError):
 
 class InfobusValidationError(InfobusError):
     """Exception raised for data validation errors."""
-    
+
     def __init__(self, message: str, field: Optional[str] = None) -> None:
         """Initialize the validation error.
-        
+
         Args:
             message: Error message describing the validation issue
             field: Field name that failed validation (if applicable)
@@ -64,10 +64,10 @@ class InfobusValidationError(InfobusError):
 
 class InfobusAuthenticationError(InfobusAPIError):
     """Exception raised for authentication-related errors."""
-    
+
     def __init__(self, message: str = "Authentication failed") -> None:
         """Initialize the authentication error.
-        
+
         Args:
             message: Error message
         """
@@ -76,10 +76,10 @@ class InfobusAuthenticationError(InfobusAPIError):
 
 class InfobusRateLimitError(InfobusAPIError):
     """Exception raised when API rate limits are exceeded."""
-    
+
     def __init__(self, message: str = "Rate limit exceeded") -> None:
         """Initialize the rate limit error.
-        
+
         Args:
             message: Error message
         """
