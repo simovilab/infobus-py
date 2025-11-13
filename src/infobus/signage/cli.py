@@ -5,16 +5,8 @@ import sys
 import json
 from pathlib import Path
 
-# 🔧 CORREGIR IMPORTS
-current_dir = Path(__file__).parent
-sys.path.insert(0, str(current_dir))
-
-try:
-    from render import SignageRenderer
-    from signage_models import Template
-except ImportError as e:
-    click.echo(f"❌ Error importando: {e}")
-    sys.exit(1)
+from .render import SignageRenderer
+from .signage_models import Template
 
 
 def cargar_plantilla(nombre_plantilla):
