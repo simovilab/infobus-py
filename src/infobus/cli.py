@@ -17,7 +17,7 @@ from .cli_utils import get_client
 from .realtime.cli import realtime_command
 from .screens.cli import screens_command
 from .alerts.cli import alerts_command
-from .signage.cli import signage as signage_group
+from .signage.cli import signage
 
 
 @click.group()
@@ -36,7 +36,7 @@ def cli():
 
 
 # Add signage subcommand group
-cli.add_command(signage_group, name="signage")
+cli.add_command(signage, name="signage")
 
 
 @cli.group(name="api")

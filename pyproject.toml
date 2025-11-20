@@ -42,6 +42,7 @@ Documentation = "https://github.com/simovilab/infobus-py#readme"
 
 [project.scripts]
 infobus = "infobus.cli:main"
+signage = "infobus.signage.cli:signage"
 
 [project.optional-dependencies]
 dev = [
