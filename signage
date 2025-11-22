@@ -1,0 +1,5 @@
+#!/bin/bash
+# Crear carpeta output si no existe
+mkdir -p output
+# Ejecutar
+docker run -v $(pwd)/output:/app/output signage "$@"

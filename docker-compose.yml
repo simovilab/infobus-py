@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  signage:
+    image: signage
+    volumes:
+      - ./output:/app/output
+    working_dir: /app/output

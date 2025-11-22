@@ -16,8 +16,15 @@ dependencies = [
     "cairosvg>=2.7.0",
     "segno>=1.5.0",
     "pyyaml>=6.0.0",
+    "playwright>=1.40.0",
 ]
-keywords = ["transit", "gtfs", "public-transportation", "api-client", "research"]
+keywords = [
+    "transit",
+    "gtfs",
+    "public-transportation",
+    "api-client",
+    "research"
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -32,13 +39,13 @@ classifiers = [
     "Topic :: Scientific/Engineering",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-license = {text = "Apache-2.0"}
+license = { text = "Apache-2.0" }
 
 [project.urls]
 Homepage = "https://github.com/simovilab/infobus-py"
 Repository = "https://github.com/simovilab/infobus-py"
 Documentation = "https://github.com/simovilab/infobus-py#readme"
-"Bug Tracker" = "https://github.com/simovilab/infobus-py/issues"
+BugTracker = "https://github.com/simovilab/infobus-py/issues"
 
 [project.scripts]
 infobus = "infobus.cli:main"
