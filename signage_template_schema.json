@@ -1,0 +1,208 @@
+{
+  "$defs": {
+    "Dimensions": {
+      "properties": {
+        "width": {
+          "title": "Width",
+          "type": "integer"
+        },
+        "height": {
+          "title": "Height",
+          "type": "integer"
+        },
+        "unit": {
+          "default": "px",
+          "description": "Unidad de medida: px o mm",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "width",
+        "height"
+      ],
+      "title": "Dimensions",
+      "type": "object"
+    },
+    "FieldDef": {
+      "properties": {
+        "name": {
+          "description": "Nombre identificador del campo",
+          "title": "Name",
+          "type": "string"
+        },
+        "type": {
+          "description": "Tipo: text, code, qr, icon",
+          "title": "Type",
+          "type": "string"
+        },
+        "required": {
+          "default": true,
+          "description": "Si el campo es obligatorio",
+          "title": "Required",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "title": "FieldDef",
+      "type": "object"
+    },
+    "Font": {
+      "properties": {
+        "family": {
+          "default": "Inter",
+          "description": "Familia tipografica",
+          "title": "Family",
+          "type": "string"
+        },
+        "size": {
+          "description": "Tama\u00f1o de fuente en puntos",
+          "title": "Size",
+          "type": "integer"
+        },
+        "weight": {
+          "default": "400",
+          "description": "Peso de la fuente (400=normal, 700=bold)",
+          "title": "Weight",
+          "type": "string"
+        }
+      },
+      "required": [
+        "size"
+      ],
+      "title": "Font",
+      "type": "object"
+    },
+    "Grid": {
+      "properties": {
+        "rows": {
+          "description": "Numero de filas de la grid",
+          "title": "Rows",
+          "type": "integer"
+        },
+        "cols": {
+          "description": "Numero de columnas de la grid",
+          "title": "Cols",
+          "type": "integer"
+        },
+        "margin": {
+          "default": 5,
+          "description": "Margen en pixeles",
+          "title": "Margin",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "rows",
+        "cols"
+      ],
+      "title": "Grid",
+      "type": "object"
+    },
+    "Palette": {
+      "properties": {
+        "background": {
+          "default": "#FFFFFF",
+          "description": "Color de fondo",
+          "title": "Background",
+          "type": "string"
+        },
+        "secondary": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Color secundario",
+          "title": "Secondary"
+        },
+        "text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Color del texto",
+          "title": "Text"
+        },
+        "icon_color": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Color de \u00edconos",
+          "title": "Icon Color"
+        }
+      },
+      "title": "Palette",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "name": {
+      "description": "Nombre de la plantilla",
+      "title": "Name",
+      "type": "string"
+    },
+    "dimensions": {
+      "$ref": "#/$defs/Dimensions"
+    },
+    "grid": {
+      "$ref": "#/$defs/Grid"
+    },
+    "fonts": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Font"
+      },
+      "description": "Diccionario de configuraciones de fuentes",
+      "title": "Fonts",
+      "type": "object"
+    },
+    "palette": {
+      "$ref": "#/$defs/Palette"
+    },
+    "icons": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Diccionario de iconos disponibles",
+      "title": "Icons",
+      "type": "object"
+    },
+    "fields": {
+      "description": "Lista de campos dinamicos",
+      "items": {
+        "$ref": "#/$defs/FieldDef"
+      },
+      "title": "Fields",
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "dimensions",
+    "grid",
+    "fonts",
+    "palette",
+    "fields"
+  ],
+  "title": "Signage Template Schema",
+  "type": "object",
+  "description": "Schema para plantillas de se\u00f1alizacion de transporte publico"
+}

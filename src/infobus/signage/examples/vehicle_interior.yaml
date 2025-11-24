@@ -1,0 +1,44 @@
+name: "vehicle_interior"
+description: "Señalización interior para vehículos"
+
+dimensions:
+  width: 200
+  height: 100
+  unit: "mm"
+
+grid:
+  rows: 4
+  cols: 3
+  margin: 5
+
+fonts:
+  main:
+    family: "Inter"
+    size: 32
+    weight: "700"
+  small:
+    family: "Inter"
+    size: 24
+    weight: "400"
+
+palette:
+  background: "#333333"
+  text: "#FFFFFF"
+  icon_color: "#FF0000"
+
+icons:
+  bus: 
+    "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+  wheelchair: 
+    "M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"
+
+fields:
+  - name: "route_number"
+    type: "text"
+    required: true
+  - name: "destination"
+    type: "text"
+    required: true
+  - name: "accessibility_icon"
+    type: "icon"
+    required: false

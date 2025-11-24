@@ -1,0 +1,54 @@
+name: "station_modular"
+description: "Señal modular para estaciones"
+
+dimensions:
+  width: 600
+  height: 400
+  unit: "mm"
+
+grid:
+  rows: 12
+  cols: 8
+  margin: 15
+
+fonts:
+  title:
+    family: "Inter"
+    size: 140
+    weight: "700"
+  subtitle:
+    family: "Inter"
+    size: 100
+    weight: "400"
+  body:
+    family: "Inter"
+    size: 48
+    weight: "300"
+
+palette:
+  background: "#FFFFFF"
+  text: "#000000"
+  secondary: "#008000"
+  icon_color: "#0000FF"
+  
+icons:
+  train: 
+    "M12 2c-4 0-8 .5-8 4v9.5c0 .95.38 1.81 1 2.44V20h3v-2h8v2h3v-2.06c.62-.63 1-1.49 1-2.44V6c0-3.5-4-4-8-4zm0 2c3.51 0 4.96.48 5.57 1H6.43c.61-.52 2.06-1 5.57-1zm-6 6h4v3H6v-3zm12 0h-4v3h4v-3z"
+  info: 
+    "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+  elevator:
+    "M7 2c-.55 0-1 .45-1 1v18c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1H7zm5 17c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm0-14c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"
+
+fields:
+  - name: "station_name"
+    type: "text"
+    required: true
+  - name: "line_name"
+    type: "text"
+    required: false
+  - name: "schedule"
+    type: "text"
+    required: false
+  - name: "info_icon"
+    type: "icon"
+    required: false

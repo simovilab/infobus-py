@@ -1,0 +1,155 @@
+<svg width="{{ width }}{{ unit }}" height="{{ height }}{{ unit }}" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100%" height="100%" fill="{{ background_color }}"/>
+    
+    <!-- SISTEMA SIMPLE GRID  -->
+    {% set current_y = 300 %}
+    
+    {# SEÑALIZACIÓN DE PARADAS #}
+    {% if stop_name %}
+    <text x="225" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('primary', template.fonts.get('title', {})).size or 24 }}pt"
+          font-weight="{{ template.fonts.get('primary', template.fonts.get('title', {})).weight or '400' }}">
+        {{ stop_name }}
+    </text>
+    {% set current_y = current_y + 100 %}
+    {% endif %}
+    
+    {% if stop_code %}
+    <text x="225" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('secondary', template.fonts.get('subtitle', {})).size or 18 }}pt"
+          font-weight="{{ template.fonts.get('secondary', template.fonts.get('subtitle', {})).weight or '400' }}">
+        {{ stop_code }}
+    </text>
+    {% set current_y = current_y + 100 %}
+    {% endif %}
+    
+    {# SEÑALIZACIÓN DE VEHÍCULOS #}
+    {% if route_number %}
+    {% set current_y = 150 %}
+    <text x="250" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('main', template.fonts.get('primary', {})).size or 16 }}pt"
+          font-weight="{{ template.fonts.get('main', template.fonts.get('primary', {})).weight or '700' }}">
+        RUTA {{ route_number }}
+    </text>
+    {% set current_y = current_y + 35 %}
+    {% endif %}
+    
+    {% if destination %}
+    <text x="250" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('small', template.fonts.get('secondary', {})).size or 12 }}pt"
+          font-weight="{{ template.fonts.get('small', template.fonts.get('secondary', {})).weight or '400' }}">
+        {{ destination }}
+    </text>
+    {% set current_y = current_y + 35 %}
+    {% endif %}
+    
+    {# SEÑALIZACIÓN DE ESTACIONES #}
+    {% if station_name %}
+    <text x="500" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('title', template.fonts.get('primary', {})).size or 24 }}pt"
+          font-weight="{{ template.fonts.get('title', template.fonts.get('primary', {})).weight or '700' }}">
+        {{ station_name }}
+    </text>
+    {% set current_y = current_y + 120 %}
+    {% endif %}
+    
+    {% if line_name %}
+    <text x="500" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('subtitle', template.fonts.get('secondary', {})).size or 18 }}pt"
+          font-weight="{{ template.fonts.get('subtitle', template.fonts.get('secondary', {})).weight or '400' }}">
+        Línea {{ line_name }}
+    </text>
+    {% set current_y = current_y + 40 %}
+    {% endif %}
+    
+    {# SEÑALIZACIÓN DE RUTAS #}
+    {% if route_name %}
+    <text x="250" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('primary', template.fonts.get('title', {})).size or 24 }}pt"
+          font-weight="{{ template.fonts.get('primary', template.fonts.get('title', {})).weight or '700' }}">
+        {{ route_name }}
+    </text>
+    {% set current_y = current_y + 40 %}
+    {% endif %}
+    
+    {% if route_number and not stop_name and not station_name %}
+    <text x="250" y="{{ current_y }}" fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ template.fonts.get('secondary', template.fonts.get('subtitle', {})).size or 18 }}pt"
+          font-weight="{{ template.fonts.get('secondary', template.fonts.get('subtitle', {})).weight or '400' }}">
+        Número: {{ route_number }}
+    </text>
+    {% set current_y = current_y + 30 %}
+    {% endif %}
+
+    <!-- SISTEMA DE ICONOS -->
+    {% set icon_y = current_y + 20 %}
+    
+    {# ICONOS PARA VEHICLE - AUTOMÁTICOS #}
+    {% if route_number and destination %}
+        {# Icono de accesibilidad #}
+        {% if accessibility_icon and icons.get('wheelchair') %}
+        <path d="{{ icons['wheelchair'] }}" fill="{{ icon_color }}" 
+              transform="translate(30, 50) scale(5)"/>
+        {% set icon_y = icon_y + 40 %}
+        {% endif %}
+        
+        {# Icono de bus #}
+        {% if icons.get('bus') %}
+        <path d="{{ icons['bus'] }}" fill="{{ icon_color }}" 
+              transform="translate(30,100) scale(5)"/>
+        {% endif %}
+    {% endif %}
+    
+    {# ICONOS PARA STATION - AUTOMÁTICOS #}
+    {% if station_name %}
+        {# Icono de tren #}
+        {% if icons.get('train') %}
+        <path d="{{ icons['train'] }}" fill="{{ icon_color }}" 
+              transform="translate(500, {{ icon_y }}) scale(4)"/>
+        {% set icon_y = icon_y + 100 %}
+        {% endif %}
+        
+        {# Icono de información #}
+        {% if icons.get('info') %}
+        <path d="{{ icons['info'] }}" fill="{{ icon_color }}" 
+              transform="translate(500, {{ icon_y  }}) scale(4)"/>
+        {% set icon_y = icon_y + 100 %}
+        {% endif %}
+    {% endif %}
+    
+    {# ICONOS PARA STOP (paradas) - AUTOMÁTICOS #}
+    {% if stop_name and stop_code and not route_number %}
+        {# Icono de bus #}
+        {% if icons.get('bus') %}
+        <path d="{{ icons['bus'] }}" fill="{{ icon_color }}" 
+              transform="translate(225, {{ icon_y }}) scale(5)"/>
+        {% endif %}
+    {% endif %}
+
+    <!-- CÓDIGO QR - POSICIÓN FIJA PARA PDF -->
+    {% if qr_code_base64 %}
+    <image href="{{ qr_code_base64 }}" 
+           x="{{ qr_x }}" y="{{ qr_y + current_y}}" 
+           width="{{ qr_size }}" height="{{ qr_size }}"
+           title="Código QR: {{ qr_url }}"/>
+    
+    <!-- Texto debajo del QR -->
+    <text x="{{ qr_x + qr_size / 2 }}" y="{{ qr_y + qr_size + 20 + current_y }}" 
+          fill="{{ text_color }}" 
+          font-family="Inter, Arial, sans-serif"
+          font-size="{{ qr_size/6}}"
+          font-weight="400"
+          text-anchor="middle">
+        Escanear QR
+    </text>
+    {% endif %}
+
+</svg>
