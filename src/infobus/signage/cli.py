@@ -97,7 +97,7 @@ def signage():
     default="svg",
     help="Formato de salida (default: svg)",
 )
-@click.option("--size", help="Tamaño en formato WxH (ej: 300x450)")
+@click.option("--size", help="Tamaño en formato WxH (ej: 300x450)(incompleto)")
 @click.option("--dpi", default=300, help="DPI para PNG (default: 300)")
 @click.option("--theme", help="Tema de colores (no implementado aún)")
 @click.option("--lang", help="Idioma (no implementado aún)")
@@ -153,15 +153,15 @@ def stop(
     default="svg",
     help="Formato de salida (default: svg)",
 )
-@click.option("--size", help="Tamaño en formato WxH (ej: 200x100)")
+@click.option("--size", help="Tamaño en formato WxH (ej: 200x100)(incompleto)")
 @click.option("--dpi", default=300, help="DPI para PNG (default: 300)")
 @click.option("--theme", help="Tema de colores")
 @click.option("--lang", help="Idioma")
 @click.option("--qr-url", help="URL para código QR")
 @click.option("--output", "-o", help="Archivo de salida")
-@click.option("--route-number", required=True, help="Número de ruta (requerido)")
+@click.option("--route-number", required=True, help="Número de ruta (requerido)") 
 @click.option("--destination", required=True, help="Destino (requerido)")
-@click.option("--accessibility", is_flag=True, help="Incluir icono de accesibilidad")
+
 def vehicle(
     template,
     output_format,
@@ -173,7 +173,6 @@ def vehicle(
     output,
     route_number,
     destination,
-    accessibility,
 ):
     """Generar señal para vehículo"""
 
@@ -181,9 +180,6 @@ def vehicle(
 
     datos = {"route_number": route_number, "destination": destination}
 
-    if accessibility:
-        datos["accessibility_icon"] = "wheelchair"
-        click.echo(f"   ♿ Incluyendo icono de accesibilidad")
 
     if qr_url:
         datos["qr_url"] = qr_url
@@ -206,10 +202,10 @@ def vehicle(
     default="svg",
     help="Formato de salida (default: svg)",
 )
-@click.option("--size", help="Tamaño en formato WxH")
+@click.option("--size", help="Tamaño en formato WxH (incompleto)")
 @click.option("--dpi", default=300, help="DPI para PNG")
-@click.option("--theme", help="Tema de colores")
-@click.option("--lang", help="Idioma")
+@click.option("--theme", help="Tema de colores (no implementado aún)")
+@click.option("--lang", help="Idioma" "(no implementado aún)")
 @click.option("--qr-url", help="URL para código QR")
 @click.option("--output", "-o", help="Archivo de salida")
 @click.option("--station-name", required=True, help="Nombre de la estación (requerido)")
@@ -249,7 +245,7 @@ def station(
     default="svg",
     help="Formato de salida",
 )
-@click.option("--size", help="Tamaño en formato WxH")
+@click.option("--size", help="Tamaño en formato WxH (incompleto)")
 @click.option("--dpi", default=300, help="DPI para PNG")
 @click.option("--theme", help="Tema de colores")
 @click.option("--lang", help="Idioma")
@@ -292,7 +288,7 @@ def route(
     default="svg",
     help="Formato de salida",
 )
-@click.option("--size", help="Tamaño en formato WxH")
+@click.option("--size", help="Tamaño en formato WxH (incompleto)")
 @click.option("--dpi", default=300, help="DPI para PNG")
 @click.option("--theme", help="Tema de colores")
 @click.option("--lang", help="Idioma")
@@ -319,7 +315,7 @@ def custom(template, output_format, size, dpi, theme, lang, qr_url, output, data
     generar_señal(template, output_format, output, datos, dpi)
 
 
-# COMANDO LIST CORREGIDO
+# COMANDO LIST 
 @signage.command(name="list")
 def list_templates():
     """Mostrar todas las plantillas disponibles"""
