@@ -17,6 +17,7 @@ ENV PATH="/root/.local/bin:${PATH}"
 
 COPY pyproject.toml .
 COPY README.md .
+COPY SIGNAGE.md .
 COPY src/ ./src/
 COPY run_signage.sh .
 
